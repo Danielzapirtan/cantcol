@@ -18,3 +18,35 @@ function completeTable() {
 }
 completeTable();
 
+let isEditing = false;
+
+const edit = document.getElementById("Edit");
+function toggleEditMode() {
+  isEditing = !isEditing;
+  const allTds = tbody.querySelectorAll("td");
+  allTds.forEach(td => {
+    if (isEditing) {
+      // Convert to input
+      const value = td.textContent;
+      const input = document.createElement("input");
+      input.type = "text";
+      input.value = value;
+      td.textContent = "";
+      td.appendChild(input);
+    } else {
+      // Save and revert to text
+      const input = td.querySelector("input");
+      if (input) {
+        td.textContent = input.value;
+      }
+    }
+  });
+}
+
+document.addEventListener("keydown", function(event) {
+  if ((event.ctrlKey || event.metaKey) && (event.key === "i" || event.key === "I")) {
+    event.preventDefault();
+    toggleEditMode();
+  }
+});
+
