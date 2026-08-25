@@ -79,9 +79,6 @@ const edit = document.getElementById("Edit");
 function toggleEditMode() {
   isEditing = !isEditing;
   const allTds = tbody.querySelectorAll("td");
-  if (allTds.length <= 8) {
-    completeTable();
-  }
   allTds.forEach((idx, td) => {
     if (isEditing) {
       // Convert to input
