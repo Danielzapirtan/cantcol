@@ -1,0 +1,14 @@
+* {
+  background-color: black;
+  color: white;
+}
+
+.header {
+  font-size: 27;
+}
+
+.title {
+  font-size: 34;
+  align: center;
+  font-weight: bold;
+}
