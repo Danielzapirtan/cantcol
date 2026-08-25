@@ -1,5 +1,4 @@
 const errorEl = document.getElementById("errorEl");
-errorEl.innerHTML = `Eroarea 10`;
 const tbody = document.getElementById("tbody");
 const nRecords = 30;
 const nCols = 8;
@@ -74,42 +73,9 @@ function updateDB(idx, value) {
   saveDB();
 }
 
-let isEditing = false;
-
-const edit = document.getElementById("Edit");
-
-function toggleEditMode() {
-  isEditing = !isEditing;
-  const allTds = tbody.querySelectorAll("td");
-  let idx = 0;
-  allTds.forEach((td) => {
-    if (isEditing) {
-      const value = td.textContent;
-      const input = document.createElement("input");
-      input.type = "text";
-      input.value = value;
-      td.textContent = "";
-      td.appendChild(input);
-    } else {
-      const input = td.querySelector("input");
-      if (input) {
-        td.textContent = input.value;
-	updateDB(idx, input.value);
-      }
-    }
-    idx++;
-  });
-}
-
 function onLoad() {
-  errorEl.innerHTML = `Eroarea 10`;
+  resetDB();
   condLoadDB();
-  document.addEventListener("keydown", function(event) {
-    if ((event.ctrlKey || event.metaKey) && (event.key === "i" || event.key === "I")) {
-      event.preventDefault();
-      toggleEditMode();
-    }
-  });
 }
 
 onLoad();
