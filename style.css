@@ -28,13 +28,3 @@ table th, td {
   padding: 2px;
   height: 20px;
 }
-
-#Edit {
-  background-color: darkblue;
-  color: white;
-}
-
-#Edit .edit {
-  background-color: olive;
-}
-

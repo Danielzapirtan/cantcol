@@ -5,6 +5,7 @@ let db;
 let cold;
 const dbItem = "db";
 
+alert(10);
 function initDB() {
   db = [];
   let recordIX;
@@ -12,7 +13,7 @@ function initDB() {
   for (recordIX = 0; recordIX < nRecords; recordIX++) {
     let u;
     for (u = 0; u < nCols; u++) {
-      value = "";
+      const value = "";
       record.push(value);
     }
     db.push(record);
@@ -81,7 +82,6 @@ function toggleEditMode() {
   const allTds = tbody.querySelectorAll("td");
   allTds.forEach((idx, td) => {
     if (isEditing) {
-      // Convert to input
       const value = td.textContent;
       const input = document.createElement("input");
       input.type = "text";
@@ -89,7 +89,6 @@ function toggleEditMode() {
       td.textContent = "";
       td.appendChild(input);
     } else {
-      // Save and revert to text
       const input = td.querySelector("input");
       if (input) {
         td.textContent = input.value;
