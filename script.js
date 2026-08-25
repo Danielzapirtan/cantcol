@@ -1,3 +1,5 @@
+const errorEl = document.getElementById("errorEl");
+errorEl.innerHTML = `Eroarea 10`;
 const tbody = document.getElementById("tbody");
 const nRecords = 30;
 const nCols = 8;
@@ -5,7 +7,6 @@ let db;
 let cold;
 const dbItem = "db";
 
-alert(10);
 function initDB() {
   db = [];
   let recordIX;
@@ -59,7 +60,7 @@ function resetDB() {
 }
 
 function condLoadDB() {
-  if localStorage.getItem(dbItem) {
+  if (localStorage.getItem(dbItem)) {
     loadDB();
   } else {
     resetDB();
@@ -80,7 +81,8 @@ const edit = document.getElementById("Edit");
 function toggleEditMode() {
   isEditing = !isEditing;
   const allTds = tbody.querySelectorAll("td");
-  allTds.forEach((idx, td) => {
+  let idx = 0;
+  allTds.forEach((td) => {
     if (isEditing) {
       const value = td.textContent;
       const input = document.createElement("input");
@@ -95,10 +97,12 @@ function toggleEditMode() {
 	updateDB(idx, input.value);
       }
     }
+    idx++;
   });
 }
 
 function onLoad() {
+  errorEl.innerHTML = `Eroarea 10`;
   condLoadDB();
   document.addEventListener("keydown", function(event) {
     if ((event.ctrlKey || event.metaKey) && (event.key === "i" || event.key === "I")) {
