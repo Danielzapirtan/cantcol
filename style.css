@@ -26,4 +26,6 @@ table {
 table th, td {
   border: solid 2pt;
   padding: 2px;
+  height: 20px;
 }
+
