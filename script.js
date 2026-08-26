@@ -41,6 +41,7 @@ function toggleEditMode() {
       if (input) {
         td.textContent = input.value;
       }
+      input.remove();
     }
   });
 }
