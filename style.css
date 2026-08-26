@@ -12,7 +12,7 @@
   overflow-y: auto;
 }
 
-.edit {
+button {
   background-color: blue;
   color: white;
 }

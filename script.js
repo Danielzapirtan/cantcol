@@ -20,10 +20,15 @@ function completeTable() {
   }
 }
 
-//localStorage.removeItem(dbItem);
 if (!localStorage.getItem(dbItem)) {
   completeTable();
 }
+
+const clearEl = document.querySelector(".clear");
+
+clearEl.addEventListener("click", function(event) {
+  localStorage.removeItem("dbItem");
+});
 
 let isEditing = false;
 const editEl = document.querySelector(".edit");
