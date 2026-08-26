@@ -1,10 +1,15 @@
-const tbody = document.getElementById("tbody");
+let tbody = document.getElementById("tbody");
 const nRecords = 31;
 const dbItem = "db";
 
 function saveDB() {
   const jsonDB = JSON.stringify(tbody);
-  localStorage.setItem(dbItem, jsonDB);
+  localStorage.setItem(dbitem, jsonDB);
+}
+
+function loadDB() {
+  const jsonDB = localStorage.getItem(dbitem);
+  tbody = JSON.parse(jsonDB);
 }
 
 function addBlankRecord() {
@@ -26,6 +31,11 @@ function completeTable() {
 }
 
 const clearEl = document.querySelector(".clear");
+const saveEl = document.querySelector(".save");
+const loadEl = document.querySelector(".load");
+
+saveEl.addEventListener("click", saveDB);
+loadEl.addEventListener("click", loadDB);
 
 clearEl.addEventListener("click", function(event) {
   localStorage.removeItem(dbItem);
