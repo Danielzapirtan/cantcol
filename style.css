@@ -3,15 +3,13 @@ main {
   color: black;
   --a4width: 210mm;
   --a4height: 297mm;
-  --margin: calc((100vw - var(--a4width)) * 0.5)
 }
 
 .doc-container {
   width: var(--a4width);
   height: var(--a4height);
+  margin: calc(50vw - 105mm);
   border: solid black 2pt;
-  margin-left: var(--margin);
-  margin-right: var(--margin);
   overflow-y: auto;
 }
 
