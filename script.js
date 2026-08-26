@@ -19,6 +19,7 @@ function completeTable() {
 completeTable();
 
 let isEditing = false;
+const editEl = document.querySelector(".edit");
 
 function toggleEditMode() {
   isEditing = !isEditing;
@@ -26,6 +27,7 @@ function toggleEditMode() {
   allTds.forEach(td => {
     if (isEditing) {
       // Convert to input
+      editEl.style.background = "olive";
       const value = td.textContent;
       const input = document.createElement("input");
       input.type = "text";
@@ -34,6 +36,7 @@ function toggleEditMode() {
       td.appendChild(input);
     } else {
       // Save and revert to text
+      editEl.style.background = "blue";
       const input = td.querySelector("input");
       if (input) {
         td.textContent = input.value;
@@ -42,10 +45,8 @@ function toggleEditMode() {
   });
 }
 
-document.addEventListener("keydown", function(event) {
-  if ((event.ctrlKey || event.metaKey) && (event.key === "i" || event.key === "I")) {
-    event.preventDefault();
-    toggleEditMode();
-  }
+editEl.addEventListener("click", function(event) {
+  event.preventDefault();
+  toggleEditMode();
 });
 

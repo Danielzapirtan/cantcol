@@ -12,6 +12,11 @@
   overflow-y: auto;
 }
 
+.edit {
+  background-color: blue;
+  color: white;
+}
+
 .doc-container {
   width: var(--a4width);
   height: var(--a4height);
