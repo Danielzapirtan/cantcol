@@ -29,12 +29,3 @@ table th, td {
   height: 20px;
 }
 
-#Edit {
-  background-color: darkblue;
-  color: white;
-}
-
-#Edit .edit {
-  background-color: olive;
-}
-
