@@ -33,7 +33,7 @@ if (!localStorage.getItem(dbItem)) {
 const clearEl = document.querySelector(".clear");
 
 clearEl.addEventListener("click", function(event) {
-  localStorage.removeItem("dbItem");
+  localStorage.removeItem(dbItem);
 });
 
 let isEditing = false;
