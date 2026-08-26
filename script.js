@@ -44,6 +44,7 @@ function toggleEditMode() {
   const allTds = tbody.querySelectorAll("td");
   allTds.forEach(td => {
     if (isEditing) {
+      clearEl.style.display = "none";
       editEl.style.background = "olive";
       const value = td.textContent;
       const input = document.createElement("input");
@@ -52,6 +53,7 @@ function toggleEditMode() {
       td.textContent = "";
       td.appendChild(input);
     } else {
+      clearEl.style.display = "block";
       editEl.style.background = "blue";
       const input = td.querySelector("input");
       if (input) {
