@@ -1,5 +1,6 @@
 const tbody = document.getElementById("tbody");
 const nRecords = 31;
+const dbItem = "db";
 
 function addBlankRecord() {
   const tr = document.createElement("tr");
@@ -19,7 +20,9 @@ function completeTable() {
   }
 }
 
-completeTable();
+if (!localStorage.getItem(dbItem)) {
+  completeTable();
+}
 
 let isEditing = false;
 const editEl = document.querySelector(".edit");
