@@ -55,7 +55,8 @@ const editEl = document.querySelector(".edit");
 
 function toggleEditMode() {
   isEditing = !isEditing;
-  const allTds = tbody.querySelectorAll("td");
+  const lastTr = tbody.lastChild;
+  const allTds = lastTr.querySelectorAll("td");
   allTds.forEach(td => {
     if (isEditing) {
       clearEl.style.display = "none";
