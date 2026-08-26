@@ -4,11 +4,11 @@ const dbItem = "db";
 
 function saveDB() {
   const jsonDB = JSON.stringify(tbody);
-  localStorage.setItem(dbitem, jsonDB);
+  localStorage.setItem(dbItem, jsonDB);
 }
 
 function loadDB() {
-  const jsonDB = localStorage.getItem(dbitem);
+  const jsonDB = localStorage.getItem(dbItem);
   tbody = JSON.parse(jsonDB);
 }
 
