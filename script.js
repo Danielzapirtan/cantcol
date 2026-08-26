@@ -2,6 +2,11 @@ const tbody = document.getElementById("tbody");
 const nRecords = 31;
 const dbItem = "db";
 
+function saveDB() {
+  const jsonDB = JSON.stringify(tbody);
+  localStorage.setItem(dbItem, jsonDB);
+}
+
 function addBlankRecord() {
   const tr = document.createElement("tr");
   let u;
@@ -22,6 +27,7 @@ function completeTable() {
 
 if (!localStorage.getItem(dbItem)) {
   completeTable();
+  saveDB();
 }
 
 const clearEl = document.querySelector(".clear");
