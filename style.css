@@ -5,17 +5,18 @@
   --a4height: 297mm;
 }
 
-body {
-  --width: 95vw;
-  width: var(--width);
-  align: center;
+.viewport {
+  width: 95vw;
+  height: 95vh;
+  overflow: auto;
+  overflow-y: auto;
 }
 
 .doc-container {
   width: var(--a4width);
   height: var(--a4height);
+  margin: 20px;
   border: solid black 2pt;
-  margin: calc(calc(var(--width) - var(--a4width))/2);
   overflow: auto;
   overflow-y: auto;
 }
