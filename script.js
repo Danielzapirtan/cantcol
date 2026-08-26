@@ -1,16 +1,6 @@
-let tbody = document.getElementById("tbody");
+const tbody = document.getElementById("tbody");
 const nRecords = 31;
 const dbItem = "db";
-
-function saveDB() {
-  const jsonDB = JSON.stringify(tbody);
-  localStorage.setItem(dbItem, jsonDB);
-}
-
-function loadDB() {
-  const jsonDB = localStorage.getItem(dbItem);
-  tbody = JSON.parse(jsonDB);
-}
 
 function addBlankRecord() {
   const tr = document.createElement("tr");
@@ -38,8 +28,26 @@ const saveEl = document.querySelector(".save");
 const loadEl = document.querySelector(".load");
 const addEl = document.querySelector(".add");
 
-saveEl.addEventListener("click", saveDB);
-loadEl.addEventListener("click", loadDB);
+saveEl.addEventListener("click", (e) => {
+  const allTds = tbody.querySelectorAll("td");
+  const jsonDB = JSON.stringify(allTds);
+  localStorage.setItem(dbItem, jsonDB);
+});
+
+loadEl.addEventListener("click", (e) => {
+  const jsonDB = localStorage.getItem(dbItem);
+  const count = jsonDB.length / 8;
+  let idx = 0;
+  for (let r = 0; r < count; r++) {
+    addBlankRecord();
+    const tr = tbody.lastChild;
+    const allTds = tr.querySelectorAll("td");
+    allTds.forEach((td) => {
+      td.textContent = jsonDB[idx++];
+    });
+  }
+});
+
 addEl.addEventListener("click", addBlankRecord);
 
 clearEl.addEventListener("click", function(event) {
