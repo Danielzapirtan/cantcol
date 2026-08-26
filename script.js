@@ -1,7 +1,6 @@
 const donsole = document.querySelector(".donsole");
 const tbody = document.getElementById("tbody");
 const dbItem = "db";
-donsole.innerHTML = ``;
 
 function addBlankRecord() {
   const tr = document.createElement("tr");
