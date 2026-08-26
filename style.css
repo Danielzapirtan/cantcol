@@ -1,6 +1,18 @@
-* {
+main {
   background-color: white;
   color: black;
+  --a4width: 210mm;
+  --a4height: 297mm;
+  --margin: calc((100vw - var(--a4width)) * 0.5)
+}
+
+.doc-container {
+  width: var(--a4width);
+  height: var(--a4height);
+  border: solid black 2pt;
+  margin-left: var(--margin);
+  margin-right: var(--margin);
+  overflow-y: auto;
 }
 
 .header {
@@ -18,9 +30,9 @@ table {
   border-collapse: collapse;
   border: solid 2pt;
   align: center;
-  width: 90%;
-  margin-left: 5%;
-  margin-right: 5%;
+  width: calc(var(--a4width) * 0.9);
+  margin-left: calc(var(--a4width) * 0.05);
+  margin-right: calc(var(--a4width) * 0.05);
 }
 
 table th, td {
