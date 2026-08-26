@@ -20,6 +20,7 @@ function completeTable() {
   }
 }
 
+//localStorage.removeItem(dbItem);
 if (!localStorage.getItem(dbItem)) {
   completeTable();
 }
