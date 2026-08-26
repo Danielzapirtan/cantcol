@@ -25,6 +25,9 @@ function addBlankRecord() {
 
 function completeTable() {
   let record;
+  const allTr = tbody.querySelectorAll("tr");
+  if (allTr.length > nRecords)
+    return;
   for (record = 0; record < nRecords - 1; record++) {
     addBlankRecord();
   }
