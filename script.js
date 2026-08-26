@@ -40,8 +40,8 @@ function toggleEditMode() {
       const input = td.querySelector("input");
       if (input) {
         td.textContent = input.value;
+        input.remove();
       }
-      input.remove();
     }
   });
 }
