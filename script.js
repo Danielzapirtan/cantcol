@@ -30,7 +30,6 @@ const clearEl = document.querySelector(".clear");
 clearEl.addEventListener("click", function(event) {
   localStorage.removeItem(dbItem);
   completeTable();
-  saveDB();
 });
 
 let isEditing = false;
