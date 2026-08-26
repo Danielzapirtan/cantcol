@@ -1,5 +1,5 @@
+const donsole = document.querySelector(".donsole");
 const tbody = document.getElementById("tbody");
-const nRecords = 31;
 const dbItem = "db";
 
 function addBlankRecord() {
@@ -11,16 +11,7 @@ function addBlankRecord() {
     tr.appendChild(td);
   }
   tbody.appendChild(tr);
-}
-
-function completeTable() {
-  let record;
-  const allTr = tbody.querySelectorAll("tr");
-  if (allTr.length > nRecords)
-    return;
-  for (record = 0; record < nRecords - 1; record++) {
-    addBlankRecord();
-  }
+  return tr;
 }
 
 const clearEl = document.querySelector(".clear");
@@ -29,21 +20,26 @@ const loadEl = document.querySelector(".load");
 const addEl = document.querySelector(".add");
 
 saveEl.addEventListener("click", (e) => {
-  const allTds = tbody.querySelectorAll("td");
+  const allTdEls = tbody.querySelectorAll("td");
+  const allTds = [];
+  allTdEls.forEach((td) => {
+    allTds.push(td.textContent);
+  });
   const jsonDB = JSON.stringify(allTds);
   localStorage.setItem(dbItem, jsonDB);
 });
 
 loadEl.addEventListener("click", (e) => {
   const jsonDB = localStorage.getItem(dbItem);
-  const count = jsonDB.length / 8;
+  const allTds = JSON.parse(jsonDB);
+  const count = allTds.length / 8;
   let idx = 0;
-  for (let r = 0; r < count; r++) {
-    addBlankRecord();
-    const tr = tbody.lastChild;
-    const allTds = tr.querySelectorAll("td");
-    allTds.forEach((td) => {
-      td.textContent = jsonDB[idx++];
+  for (let r = 0; r < count - 2; r++) {
+    const tr = addBlankRecord();
+    const allTdEls = tr.querySelectorAll("td");
+    allTdEls.forEach((td) => {
+      td.textContent = allTds[idx + 16];
+      idx++;
     });
   }
 });

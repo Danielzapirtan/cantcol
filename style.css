@@ -12,6 +12,12 @@
   overflow-y: auto;
 }
 
+.donsole {
+  min-height: 40px;
+  color: red;
+  display: block;
+}
+
 .buttons {
   display: flex;
   flex-direction: row;
@@ -24,7 +30,7 @@ button {
 
 .doc-container {
   width: var(--a4width);
-  height: var(--a4height);
+  height: calc(var(--a4height) / 2);
   margin: calc(max(20px, (95vw - var(--a4width)) / 2));
   border: solid black 2pt;
   overflow: auto;
