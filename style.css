@@ -12,6 +12,11 @@
   overflow-y: auto;
 }
 
+.buttons {
+  display: flex;
+  flex-direction: row;
+}
+
 button {
   background-color: blue;
   color: white;

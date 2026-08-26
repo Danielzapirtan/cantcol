@@ -36,13 +36,18 @@ function completeTable() {
 const clearEl = document.querySelector(".clear");
 const saveEl = document.querySelector(".save");
 const loadEl = document.querySelector(".load");
+const addEl = document.querySelector(".add");
 
 saveEl.addEventListener("click", saveDB);
 loadEl.addEventListener("click", loadDB);
+addEl.addEventListener("click", addBlankRecord);
 
 clearEl.addEventListener("click", function(event) {
-  localStorage.removeItem(dbItem);
-  completeTable();
+  const allTrs = tbody.querySelectorAll("tr");
+  if (allTrs.length < 3)
+    return;
+  const lastTr = tbody.lastChild;
+  lastTr.remove();
 });
 
 let isEditing = false;
