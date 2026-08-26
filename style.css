@@ -15,7 +15,7 @@
 .doc-container {
   width: var(--a4width);
   height: var(--a4height);
-  margin: 20px;
+  margin: calc(max(20px, (95vw - var(--a4width)) / 2));
   border: solid black 2pt;
   overflow: auto;
   overflow-y: auto;
