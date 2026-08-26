@@ -20,7 +20,6 @@ completeTable();
 
 let isEditing = false;
 
-const edit = document.getElementById("Edit");
 function toggleEditMode() {
   isEditing = !isEditing;
   const allTds = tbody.querySelectorAll("td");
