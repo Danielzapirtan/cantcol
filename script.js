@@ -5,7 +5,7 @@ const dbItem = "db";
 function log(message) {
   let date;
   date = newDate();
-  donsole.innerHTML += `<p>${date}: ${message}</p>`
+  donsole.innerHTML += `<p>${date}: ${message}</p>`;
 }
 
 function addBlankRecord() {
