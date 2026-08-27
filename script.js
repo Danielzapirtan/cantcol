@@ -4,11 +4,8 @@ const dbItem = "db";
 
 function log(message) {
   let date;
-  try:
-    date = newDate().toISOString();
-  catch:
-    date = newDate();
-  donsole.innerHTML += `${date}: ${message}`
+  date = newDate();
+  donsole.innerHTML += `<p>${date}: ${message}</p>`
 }
 
 function addBlankRecord() {
