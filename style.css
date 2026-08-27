@@ -30,7 +30,7 @@ button {
 
 .doc-container {
   width: var(--a4width);
-  height: calc(var(--a4height) / 2);
+  height: var(--a4height);
   margin: calc(max(20px, (95vw - var(--a4width)) / 2));
   border: solid black 2pt;
   overflow: auto;
