@@ -9,7 +9,7 @@ function log(message) {
 }
 
 function addBlankRecord() {
-  log(`Button Add pressed!`)
+  log(`Button Add pressed!`);
   const tr = document.createElement("tr");
   let u;
   for (u = 0; u < 8; u++) {
@@ -27,7 +27,7 @@ const loadEl = document.querySelector(".load");
 const addEl = document.querySelector(".add");
 
 saveEl.addEventListener("click", (e) => {
-  log(`Button Save pressed!`)
+  log(`Button Save pressed!`);
   const allTdEls = tbody.querySelectorAll("td");
   const allTds = [];
   allTdEls.forEach((td) => {
@@ -38,7 +38,7 @@ saveEl.addEventListener("click", (e) => {
 });
 
 loadEl.addEventListener("click", (e) => {
-  log(`Button Load pressed!`)
+  log(`Button Load pressed!`);
   const jsonDB = localStorage.getItem(dbItem);
   const allTds = JSON.parse(jsonDB);
   const count = allTds.length / 8;
@@ -56,7 +56,7 @@ loadEl.addEventListener("click", (e) => {
 addEl.addEventListener("click", addBlankRecord);
 
 clearEl.addEventListener("click", function(event) {
-  log(`Button Delete pressed!`)
+  log(`Button Delete pressed!`);
   const allTrs = tbody.querySelectorAll("tr");
   if (allTrs.length < 3)
     return;
@@ -68,7 +68,7 @@ let isEditing = false;
 const editEl = document.querySelector(".edit");
 
 function toggleEditMode() {
-  log(`Button Edit pressed!`)
+  log(`Button Edit pressed!`);
   isEditing = !isEditing;
   const lastTr = tbody.lastChild;
   const allTds = lastTr.querySelectorAll("td");
