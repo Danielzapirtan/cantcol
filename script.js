@@ -3,8 +3,7 @@ const tbody = document.getElementById("tbody");
 const dbItem = "db";
 
 function log(message) {
-  let date;
-  date = new Date();
+  const date = new Date();
   donsole.innerHTML += `<p>${date}: ${message}</p>`;
 }
 
