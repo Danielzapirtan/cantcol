@@ -25,7 +25,7 @@ const saveEl = document.querySelector(".save");
 const loadEl = document.querySelector(".load");
 const addEl = document.querySelector(".add");
 
-saveEl.addEventListener("click", (e) => {
+/*saveEl.addEventListener("click", (e) => {
   log(`Button Save pressed!`);
   const allTdEls = tbody.querySelectorAll("td");
   const allTds = [];
@@ -97,4 +97,4 @@ editEl.addEventListener("click", function(event) {
   event.preventDefault();
   toggleEditMode();
 });
-
+*/
