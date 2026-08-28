@@ -25,7 +25,7 @@ const saveEl = document.querySelector(".save");
 const loadEl = document.querySelector(".load");
 const addEl = document.querySelector(".add");
 
-/*saveEl.addEventListener("click", (e) => {
+saveEl.addEventListener("click", (e) => {
   log(`Button Save pressed!`);
   const allTdEls = tbody.querySelectorAll("td");
   const allTds = [];
@@ -54,7 +54,7 @@ loadEl.addEventListener("click", (e) => {
 
 addEl.addEventListener("click", addBlankRecord);
 
-clearEl.addEventListener("click", function(event) {
+/*clearEl.addEventListener("click", function(event) {
   log(`Button Delete pressed!`);
   const allTrs = tbody.querySelectorAll("tr");
   if (allTrs.length < 3)
