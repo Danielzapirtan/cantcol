@@ -3,15 +3,14 @@ const tbody = document.getElementById("tbody");
 const dbItem = "db";
 
 function log(message) {
-  const date = new Date();
+  const date = new Date().toISOString();
   donsole.innerHTML += `<p>${date}: ${message}</p>`;
 }
 
 function addBlankRecord() {
   log(`Button Add pressed!`);
   const tr = document.createElement("tr");
-  let u;
-  for (u = 0; u < 8; u++) {
+  for (let u = 0; u < 8; u++) {
     const td = document.createElement("td");
     td.textContent = "";
     tr.appendChild(td);
@@ -54,7 +53,7 @@ loadEl.addEventListener("click", (e) => {
 
 addEl.addEventListener("click", addBlankRecord);
 
-/*clearEl.addEventListener("click", function(event) {
+clearEl.addEventListener("click", function(event) {
   log(`Button Delete pressed!`);
   const allTrs = tbody.querySelectorAll("tr");
   if (allTrs.length < 3)
@@ -97,4 +96,3 @@ editEl.addEventListener("click", function(event) {
   event.preventDefault();
   toggleEditMode();
 });
-*/
