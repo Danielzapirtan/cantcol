@@ -4,7 +4,7 @@ const dbItem = "db";
 
 function log(message) {
   let date;
-  date = newDate();
+  date = new Date();
   donsole.innerHTML += `<p>${date}: ${message}</p>`;
 }
 
