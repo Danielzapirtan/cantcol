@@ -2,15 +2,15 @@
 #include <stdlib.h>
 
 int conv_by_line() {
-  while (!feof(stdin)) {
-	  system("date +%Y%m%d%H%M%S%N");
-	  fflush(stdout);
-	  int ch;
-	  while ((ch = getchar()) != 10 ) {
-	    putchar(ch);
-  	}
-	  putchar(10);
-	  fflush(stdout);
+	while (!feof(stdin)) {
+		int ch = getchar();
+		if (ch == 10) {
+			putchar(10);
+			system("echo -n $(date +%Y%m%d%H%M%S%N):=");
+			fflush(stdout);
+		} else {
+			putchar(ch);
+		}
 	}
 }
 
