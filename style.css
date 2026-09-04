@@ -1,69 +1,77 @@
 * {
-  background-color: #ddd;
-  color: #333;
+  background-color: #f5f5f7;
+  color: #222;
   --a4width: 210mm;
   --a4height: 297mm;
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, Roboto, "Segoe UI", "Helvetica Neue", Arial;
 }
 
 .viewport {
-  width: 95vw;
-  height: 95vh;
+  width: 98vw;
+  height: 98vh;
+  padding: 12px;
   overflow: auto;
-  overflow-y: auto;
 }
 
 .donsole {
-  max-height: 5vw;
-  width: 320px;
-  background-color: #ed3;
-  color: #a55;
-  display: block;
+  max-height: 4rem;
+  width: 100%;
+  background-color: #fff7c2;
+  color: #5a2a00;
+  border: 1px solid #f0d86b;
+  padding: 6px;
+  margin-bottom: 8px;
   overflow: auto;
-  overflow-y: auto;
 }
 
-.buttons {
+.controls .buttons, .buttons {
   display: flex;
-  flex-direction: row;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
 }
 
 button {
-  background-color: #aaf;
-  color: #eee;
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  padding: 8px 10px;
+  border-radius: 6px;
+  cursor: pointer;
 }
+
+button:active { transform: translateY(1px); }
 
 .doc-container {
   width: var(--a4width);
-  height: var(--a4height);
-  margin: calc(min(20px, abs(95vw - var(--a4width)) / 2));
-  border: solid black 2pt;
-  overflow: auto;
-  overflow-y: auto;
+  min-height: 60vh;
+  margin: 0 auto 40px auto;
+  border: 1px solid #111;
+  padding: 12px;
+  background: white;
 }
 
-.header {
-  font-size: 27;
+.header { font-size: 20px; }
+.title { font-size: 22px; text-align: center; font-weight: 700; margin: 8px 0 16px 0; }
+
+table { font-size: 14px; border-collapse: collapse; width: 100%; }
+table th, td { border: 1px solid #ccc; padding: 6px; vertical-align: middle; }
+
+input { padding: 4px; }
+
+.auth { display: flex; justify-content: center; margin-bottom: 12px; }
+#login-box { background: white; padding: 12px; border: 1px solid #ddd; border-radius: 8px; }
+#login-box h3 { margin-top: 0; }
+#login-box label { display: block; margin: 6px 0; }
+#login-box input { width: 200px; }
+
+tfoot td { background: #fafafa; font-weight: 600; }
+
+@media print {
+  .controls, .auth, .donsole { display: none; }
 }
 
-.title {
-  font-size: 34;
-  text-align: center;
-  font-weight: bold;
-}
-
-table {
-  font-size: 17;
-  border-collapse: collapse;
-  border: solid 2pt;
-  align: center;
-  width: calc(var(--a4width) * 0.9);
-  margin-left: calc(var(--a4width) * 0.05);
-  margin-right: calc(var(--a4width) * 0.05);
-}
-
-table th, td {
-  border: solid #103 2pt;
-  padding: 2px;
-  height: 20px;
-}
-
+/* invalid input highlighting */
+input.invalid { border: 2px solid #e11 !important; background: #fff0f0; }
+.invalid-cell { outline: 2px solid #e11; background: #fff5f5; }

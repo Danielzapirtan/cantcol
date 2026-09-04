@@ -1,0 +1,4 @@
+Nr. crt.;Data;Document;Descriere;Încasări Numerar;Încasări Bancă;Plăți Numerar;Plăți Bancă;Deducibil (RON)
+1;2026-09-01;Factura 001;Ședință individuală;200.00;;0.00;;0.00
+2;2026-09-03;Chitanță 002;Ședință de grup;150.00;;0.00;;0.00
+3;2026-09-05;Factura 003;Materiale cabinet;;0.00;0.00;50.00;50.00

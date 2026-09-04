@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html lang="ro">
   <head>
-    <title>
-      Contabilitate Primara
-    </title>
+    <title>Contabilitate Primara</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
@@ -11,42 +9,49 @@
   <body>
     <main>
       <div class="viewport">
-        <div class="donsole">
+        <div class="donsole" aria-live="polite"></div>
+
+        <div class="auth" id="auth">
+          <div id="login-box">
+            <h3>Autentificare</h3>
+            <label>Utilizator: <input id="username" type="text"/></label>
+            <label>Parolă: <input id="password" type="password"/></label>
+            <div class="auth-buttons">
+              <button id="login">Conectare</button>
+              <button id="register">Înregistrare</button>
+            </div>
+            <p class="auth-note">Cont implicit: user=admin, pass=admin</p>
+          </div>
         </div>
-	<div class="buttons">
-          <button class="edit">
-            Edit
-          </button>
-          <button class="save">
-            Save
-          </button>
-          <button class="load">
-            Load
-          </button>
-          <button class="add">
-            Add
-          </button>
-          <button class="clear">
-            Remove
-          </button>
-	</div>
-        <div class="doc-container">
-          <h2 class="header">
-            __________<br/>
-            (Unitatea)
-          </h2>
-          <h1 class="title">
-            Registru - jurnal de incasari si plati
-          </h1>
+
+        <div class="controls" id="controls" style="display:none">
+          <div class="buttons">
+            <button class="edit">Editare</button>
+            <button class="save">Salvează</button>
+            <button class="load">Încarcă</button>
+            <button class="add">Adaugă</button>
+            <button class="clear">Șterge rând</button>
+            <button class="export-csv">Export CSV</button>
+            <button class="export-xls">Export Excel</button>
+            <button class="export-json">Export JSON</button>
+            <button id="logout">Deconectare</button>
+          </div>
+        </div>
+
+        <div class="doc-container" id="doc" style="display:none">
+          <h2 class="header">__________<br/>(Unitatea)</h2>
+          <h1 class="title">Registru - jurnal de încasări și plăți</h1>
+
           <table>
             <thead>
               <tr>
                 <th rowspan="2">Nr. crt.</th>
                 <th rowspan="2">Data</th>
-		<th rowspan="2">Documentul<br>(felul, nr.)</th>
-		<th rowspan="2">Felul operaţiunii<br>(explicaţii)</th>
+                <th rowspan="2">Documentul<br/>(felul, nr.)</th>
+                <th rowspan="2">Felul operațiunii<br/>(explicații)</th>
                 <th colspan="2">Încasări</th>
-                <th colspan="2">Plăţi</th>
+                <th colspan="2">Plăți</th>
+                <th rowspan="2">Deducibil (RON)</th>
               </tr>
               <tr>
                 <th>Numerar</th>
@@ -56,32 +61,24 @@
               </tr>
             </thead>
             <tbody id="tbody">
-              <tr>
-                <td>1</td>
-                <td>2</td>
-                <td>3</td>
-                <td>4</td>
-                <td>5</td>
-                <td>6</td>
-                <td>7</td>
-                <td>8</td>
-              </tr>
-              <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>Report:</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
+              <!-- rânduri de date vor fi generate din script.js -->
             </tbody>
+            <tfoot>
+              <tr id="totals-row">
+                <td colspan="3"></td>
+                <td><strong>Raport:</strong></td>
+                <td id="tot-inc-cash"></td>
+                <td id="tot-inc-bank"></td>
+                <td id="tot-exp-cash"></td>
+                <td id="tot-exp-bank"></td>
+                <td id="tot-deduct"></td>
+              </tr>
+            </tfoot>
           </table>
         </div>
       </div>
     </main>
-    <script src="script.js">
-    </script>
+    <script src="seed-local.js"></script>
+    <script src="script.js"></script>
   </body>
 </html>
